@@ -229,7 +229,7 @@ module CanCan
     end
 
     def fetch_params(key)
-      @controller.respond_to?(params_method(key), true) ? @controller.send(params_method(key)) : @params[key]
+      @controller.respond_to?(params_method(key), true) && @params[key] ? @controller.send(params_method(key)) : @params[key]
     end
 
     def params_method(key)
