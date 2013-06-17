@@ -225,6 +225,8 @@ module CanCan
     end
 
     def resource_params_by_namespaced_name
+      return @params[extract_key(namespaced_name)] unless @params[extract_key(namespaced_name)]
+
       fetch_params extract_key(namespaced_name)
     end
 
